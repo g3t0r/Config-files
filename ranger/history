@@ -1,0 +1,20 @@
+shell 
+;j
+search 
+h
+cd .cache
+cd ./vis
+shell neofetch
+open_with vim
+cd .config/
+cd /home/getor/.config/vis/colors
+open_with shell
+open_with bash
+open_with 
+shell ./Amihot
+shell git status
+help
+shell
+
+cd  .config
+open_with Q
