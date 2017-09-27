@@ -6,8 +6,6 @@ cd .cache
 cd ./vis
 shell neofetch
 open_with vim
-cd .config/
-cd /home/getor/.config/vis/colors
 open_with shell
 open_with bash
 open_with 
@@ -18,3 +16,13 @@ shell
 
 cd  .config
 open_with Q
+search  man
+cd  ../
+cd .emacs.d/
+search man
+cd   vis
+cd /home/getor/.config/vis/colors
+cd .config/
+shell polybar example
+cd /home/getor/.config/
+cd /home/getor/.config/i3/
