@@ -7,13 +7,11 @@ cd ./vis
 shell neofetch
 open_with vim
 open_with shell
-open_with bash
 open_with 
 shell ./Amihot
 shell git status
 help
 shell
-
 cd  .config
 open_with Q
 search  man
@@ -26,3 +24,7 @@ cd .config/
 shell polybar example
 cd /home/getor/.config/
 cd /home/getor/.config/i3/
+open_with bash
+delete
+
+mv E
