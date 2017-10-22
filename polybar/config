@@ -9,8 +9,8 @@
 
 [colors]
 ;background = ${xrdb:color7}
-background = #222
-background-alt = #222
+background = #000
+background-alt = #000
 foreground = ${xrdb:color2}
 ;foreground = #dfdfdf
 foreground-alt = #555
@@ -46,18 +46,18 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 2
+module-margin-right = 0
 
-font-0 = DejaVu Sans Mono:pixelsize=12;1
-font-1 = DejaVu Sans Mono:size=8:antialias=false;0
-font-2 = DejaVy Sans Mono:pixelsize=10;1
+font-0 = Fira Code:pixelsize=12;1
+font-1 = Fira Code:size=8:antialias=false;0
+font-2 = FontAwesome:pixelsize=12;1
 
-modules-left = bspwm i3
+modules-left = bspwm i3 mpd
 modules-center = date
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right =  filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
@@ -85,15 +85,15 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = #000
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = #000
 
-label-indicator-padding = 2
-label-indicator-margin = 1
+label-indicator-padding = 0
+label-indicator-margin = 0
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-underline = #000
 
 [module/filesystem]
 type = internal/fs
@@ -138,23 +138,29 @@ label-mode-background = ${colors.primary}
 label-focused =  %name%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-padding = 1
 
 label-unfocused = %name%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 1
 
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-background}
-label-visible-padding = ${self.label-focused-padding}
+label-visible-padding = 1
 
 label-urgent = %index%!
 label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-padding = 1
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+host = 127.0.0.1
+port = 6600
+interval = 2
+label-song =  %title% - %artist%
+label-offline = 🎜 mpd is offline
+format-online = <label-song> 
 
 icon-prev = 
 icon-stop = 
@@ -193,7 +199,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 #format-underline = #f90000
-label = CPU: %percentage%%
+label = %percentage%%
 
 [module/memory]
 type = internal/memory
@@ -201,7 +207,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 #format-underline = #4bffdc
-label =RAM: %percentage_used%%
+label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -245,7 +251,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
+date = ""
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -255,18 +261,18 @@ format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 #format-underline = #0a6cf5
 
-label = %date% %time%
+label = %time% %date%
 
 [module/volume]
 type = internal/volume
 
 format-volume = <label-volume> 
-label-volume = VOL: %percentage%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55

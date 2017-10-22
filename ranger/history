@@ -20,11 +20,20 @@ cd .emacs.d/
 search man
 cd   vis
 cd /home/getor/.config/vis/colors
-cd .config/
 shell polybar example
 cd /home/getor/.config/
 cd /home/getor/.config/i3/
 open_with bash
-delete
 
 mv E
+ shell mpc update
+shell -f mv %f /home/getor/Muzyka/
+rm -rf %f
+shell rm -rf %f
+rename The Glitch Mob - Drink the Sea - 2010 - FLAC
+shell mv -f %f ~/Muzyka/
+delete
+cd .config/
+search poly
+find 
+shell mpc update
