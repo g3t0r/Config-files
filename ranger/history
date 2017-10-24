@@ -37,3 +37,4 @@ cd .config/
 search poly
 find 
 shell mpc update
+cd .gtk2-0

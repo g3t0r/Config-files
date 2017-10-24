@@ -92,8 +92,9 @@ label-layout-underline = #000
 
 label-indicator-padding = 0
 label-indicator-margin = 0
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = #000
+label-indicator-foreground = #000
+label-indicator-background = ${xrdb:color2}
+label-indicator-underline = ${xrdb:color2}
 
 [module/filesystem]
 type = internal/fs
@@ -148,8 +149,9 @@ label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-background}
 label-visible-padding = 1
 
-label-urgent = %index%!
-label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent = %name%
+label-urgent-background = ${colors.primary}
+label-urgent-foreground = #000
 label-urgent-padding = 1
 
 [module/mpd]
