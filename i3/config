@@ -93,12 +93,13 @@ bindsym $mod+a focus parent
 
 #WORKSPACES_TO_VARIABLES
 set $wsShell "0:"
-set $wsWeb "1:"
+set $wsWeb "1:"
 set $wsCode "2:"
 set $wsCode2 "3:"
 set $wsMusic "4:"
 set $wsMic "6:"
 set $wsVideo "5:"
+set $wsTorrent "7:"
 
 
 
@@ -132,8 +133,10 @@ bindsym $mod+Shift+9 move container to workspace 7
 #-----------ASSIGN TO WORKSPACES------------------#
 assign [class="URxvt"] $wsShell
 assign [class="Firefox"] $wsWeb
+assign [class="Chromium"] $wsWeb
 assign [class="Emacs"] $wsCode
 assign [class="mpv"] $wsVideo
+assign [class="qBittorrent"] $wsTorrent
 
 
 
@@ -213,10 +216,15 @@ client.background       #ffffff
 
 #Audio
 bindsym Print exec --no-startup-id /usr/bin/xfce4-screenshooter
-bindcode 123 exec --no-startup-id amixer -q sset Master 5%+
-bindcode 122 exec --no-startup-id amixer -q sset Master 5%-
-bindcode 121 exec --no-startup-id amixer -q sset Master toggle
-bindsym  XF86AudioPlay exec --no-startup-id mpc toggle
+bindcode 167 exec --no-startup-id amixer -q sset Master 5%+
+bindcode 166 exec --no-startup-id amixer -q sset Master 5%-
+bindcode 181 exec --no-startup-id amixer -q sset Master toggle
+
+#MPD
+bindcode 225 exec --no-startup-id mpc toggle &
+bindcode 180 exec --no-startup-id mpc prev &
+bindcode 163 exec --no-startup-id mpc next &
+
 
 
 
@@ -243,6 +251,7 @@ exec --no-startup-id  xset m 1.0 &
 exec --no-startup-id  wal -i "$(< "${HOME}/.cache/wal/wal")" &
 exec_always --no-startup-id bash /home/getor/.config/polybar/launch.sh &
 exec --no-startup-id setxkbmap -option caps:swapescape &
+exec --no-startup-id ~/xmodSkrypt.sh &
 exec --no-startup-id mpd &
 #OtherOptions
 

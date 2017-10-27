@@ -36,5 +36,6 @@ delete
 cd .config/
 search poly
 find 
-shell mpc update
 cd .gtk2-0
+shell mv %f ~/Muzyka/
+shell mpc update
