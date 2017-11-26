@@ -9,7 +9,8 @@
 
 [colors]
 ;background = ${xrdb:color7}
-background = #000
+;background = #000
+background = #60000000
 background-alt = #000
 foreground = ${xrdb:color2}
 ;foreground = #dfdfdf
@@ -51,9 +52,9 @@ padding-right = 0
 module-margin-left = 2
 module-margin-right = 0
 
-font-0 = Fira Code:pixelsize=12;1
-font-1 = Fira Code:size=8:antialias=false;0
-font-2 = FontAwesome:pixelsize=12;1
+font-0 = Fira Code:pixelsize=12;antialias=true;1
+font-1 = Fira Code:pixelsize=12:antialias=false;1
+font-2 = FontAwesome:pixelsize=12;antialias=false;2
 
 modules-left = bspwm i3 mpd
 modules-center = date
@@ -61,8 +62,8 @@ modules-right =  filesystem xbacklight volume xkeyboard memory cpu wlan eth batt
 
 tray-position = right
 tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
+tray-transparent = false
+tray-background = #600000000 
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -85,10 +86,10 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = #000
+format-prefix-underline = #10000000 
 
 label-layout = %layout%
-label-layout-underline = #000
+label-layout-underline = #10000000
 
 label-indicator-padding = 0
 label-indicator-margin = 0
@@ -134,10 +135,10 @@ strip-wsnumbers = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.background}
 
 label-focused =  %name%
-label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-background = ${colors.background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = 1
 

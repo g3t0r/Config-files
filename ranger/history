@@ -1,18 +1,3 @@
-shell 
-;j
-search 
-h
-cd .cache
-cd ./vis
-shell neofetch
-open_with vim
-open_with shell
-open_with 
-shell ./Amihot
-shell git status
-help
-shell
-cd  .config
 open_with Q
 search  man
 cd  ../
@@ -24,7 +9,6 @@ shell polybar example
 cd /home/getor/.config/
 cd /home/getor/.config/i3/
 open_with bash
-
 mv E
  shell mpc update
 shell -f mv %f /home/getor/Muzyka/
@@ -32,10 +16,35 @@ rm -rf %f
 shell rm -rf %f
 rename The Glitch Mob - Drink the Sea - 2010 - FLAC
 shell mv -f %f ~/Muzyka/
-delete
-cd .config/
 search poly
 find 
 cd .gtk2-0
 shell mv %f ~/Muzyka/
 shell mpc update
+cd .config/nvim/
+rm .emacs.d/ -rf
+shell rm .emacs.d/ -rf
+cd  ,,.
+cd .emacs.d
+delete .emacs.d
+vim .emacs
+cd .config -r
+cd .config/ -r
+cd -r .config/
+open_wit
+search Help
+cd /home/getor/.config/ranger
+shell vim %f
+shell mv %f arrow_white.png
+shell mv %f logoGleba.png
+shell du %f -h
+search wal
+search neo
+shell mkdir 
+cd /home/getor/.config/neofetch
+cd .config/
+cd .config/ranger/
+delete
+
+shell mkdir Odezwa
+open_with 
