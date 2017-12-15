@@ -9,8 +9,8 @@
 
 [colors]
 ;background = ${xrdb:color7}
-;background = #000
-background = #60000000
+background = #000
+;background = #60000000
 background-alt = #000
 foreground = ${xrdb:color2}
 ;foreground = #dfdfdf
@@ -18,6 +18,7 @@ foreground-alt = #555
 primary = ${xrdb:color2}
 secondary = #222
 alert = #bd2c40
+dpi = 96 
 
 [modules/xmenu]
 menu-0 = item 1;command
@@ -52,9 +53,9 @@ padding-right = 0
 module-margin-left = 2
 module-margin-right = 0
 
-font-0 = Fira Code:pixelsize=12;antialias=true;1
-font-1 = Fira Code:pixelsize=12:antialias=false;1
-font-2 = FontAwesome:pixelsize=12;antialias=false;2
+font-0 = DejaVu Sans Mono:pixelsize=12;antialias=true;1
+#font-1 = Fira Code:pixelsize=12:antialias=true;1
+font-1 = FontAwesome:pixelsize=12;antialias=false;2
 
 modules-left = bspwm i3 mpd
 modules-center = date
@@ -63,7 +64,8 @@ modules-right =  filesystem xbacklight volume xkeyboard memory cpu wlan eth batt
 tray-position = right
 tray-padding = 2
 tray-transparent = false
-tray-background = #600000000 
+;tray-background = #600000000 
+tray-background = ${colors.background} 
 
 ;wm-restack = bspwm
 ;wm-restack = i3

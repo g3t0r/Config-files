@@ -1,13 +1,3 @@
-open_with Q
-search  man
-cd  ../
-cd .emacs.d/
-search man
-cd   vis
-cd /home/getor/.config/vis/colors
-shell polybar example
-cd /home/getor/.config/
-cd /home/getor/.config/i3/
 open_with bash
 mv E
  shell mpc update
@@ -42,9 +32,19 @@ search wal
 search neo
 shell mkdir 
 cd /home/getor/.config/neofetch
-cd .config/
 cd .config/ranger/
-delete
 
 shell mkdir Odezwa
 open_with 
+shell mv %f ~/Pobrane/
+cd .config/
+cd  ../
+cd .mozilla/
+shell mv %f ../
+shell mv %f userChrome.css
+cd /home/getor/.mozilla
+search user
+shell mkdir chrome
+shell cp ../../../userChrome.css .
+shell vim userChrome.css
+delete
