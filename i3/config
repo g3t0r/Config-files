@@ -8,6 +8,7 @@
 # i3 config file (v4) 
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#exec --no-startup-id wal -R &
 
 set $mod Mod4
 #set $mod Escape
@@ -83,7 +84,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -139,6 +140,8 @@ assign [class="Emacs"] $wsCode
 assign [class="mpv"] $wsVideo
 assign [class="qBittorrent"] $wsTorrent
 assign [class="Pidgin"] $wsMic
+assign [class="Signal"] $wsMic
+assign [class="Slack"] $wsMic
 
 
 
@@ -184,11 +187,11 @@ gaps outer 15
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #
-set_from_resource $fg i3wm.color7 
-set_from_resource $bg i3wm.color3 
-set_from_resource $fcsd i3wm.color2 
-set_from_resource $ufcsd i3wm.color0 
-set_from_resource $indc i3wm.color0 
+#set_from_resource $fg i3wm.color7 
+#set_from_resource $bg i3wm.color3 
+#set_from_resource #ffffff i3wm.color2 
+#set_from_resource #000000 i3wm.color0 
+#set_from_resource $indc i3wm.color0 
 bar {
     
     status_command i3status
@@ -208,9 +211,9 @@ colors {
 }
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $fcsd   $fcsd   #ffffff $indc   $fcsd
-client.focused_inactive #2c2c2c #222222 #ffffff #484e50 $ufcsd
-client.unfocused        $ufcsd  $ufcsd  #888888 #292d2e $ufcsd
+client.focused          #ffffff   #ffffff   #ffffff #ffffff #ffffff
+client.focused_inactive #2c2c2c #222222 #ffffff #484e50 #000000
+client.unfocused        #000000  #000000  #888888 #292d2e #000000
 client.urgent           #2f343a #900000 #ffffff #900000 #fd4aff
 client.placeholder      #2c2c2c #0c0c0c #ffffff #2c2c2c #fd4aff
 
@@ -222,12 +225,12 @@ client.background       #ffffff
 bindsym Print exec --no-startup-id /usr/bin/xfce4-screenshooter
 bindcode 167 exec --no-startup-id amixer -q sset Master 5%+
 bindcode 166 exec --no-startup-id amixer -q sset Master 5%-
-bindcode 181 exec --no-startup-id amixer -q sset Master toggle
+bindcode 181 exec --no-startup-id amixer -D pulse set Master 1+ toggle
 
 #MPD
-bindcode 225 exec --no-startup-id mpc toggle &
-bindcode 180 exec --no-startup-id mpc prev &
-bindcode 163 exec --no-startup-id mpc next &
+bindsym $mod+F1 exec mpc toggle &
+bindsym $mod+F2 exec mpc prev &
+#bindsym $mod+F3 exec mpc next &
 
 
 
@@ -236,7 +239,7 @@ bindcode 163 exec --no-startup-id mpc next &
 #bindsym $mod+b border toggle
 #bindsym $mod+z border pixel 2
 
-bindsym $mod+z exec --no-startup-id  "wal -i $HOME/Obrazy/Tapety/Konrad/Tapety -o wal-set -t"
+#bindsym $mod+z exec --no-startup-id  "wal -i $HOME/Obrazy/Tapety/Konrad/Tapety -o wal-set -t"
 
 bindsym $mod+Tab workspace next
 bindsym $mod+x exec --no-startup-id  ~/.config/i3/lock.sh
@@ -248,25 +251,32 @@ bindsym $mod+m gaps outer current set 0 ; gaps inner current set 0
 bindsym $mod+n gaps outer current set 15; gaps inner current set 15
 
 #Other
-bindsym $mod+a exec --no-startup-id thunar
+bindsym $mod+a exec --no-startup-id thunar &
+bindsym $mod+Alt_L exec --no-startup-id rofi -show window &
+bindsym $mod+F3 exec --no-startup-id urxvt -e ranger &
 
 #Autostart
-#exec --no-startup-id  nitrogen --restore &
+exec --no-startup-id  nitrogen --restore &
 #exec --no-startup-id  compton -f -i 0.8 -c &
 exec --no-startup-id  xset m 1.0 &
-exec --no-startup-id  wal -i "$(< "${HOME}/.cache/wal/wal")" &
+#exec --no-startup-id  wal -i "$(< "${HOME}/.cache/wal/wal")" &
 exec_always --no-startup-id bash /home/getor/.config/polybar/launch.sh &
 #exec --no-startup-id setxkbmap -option caps:swapescape &
 exec --no-startup-id mpd &
 exec --no-startup-id redshift-gtk &
 #exec --no-startup-id pidgin &
-exec_always --no-startup-id ~/xmodSkrypt.sh &
+exec_always --no-startup-id setxkbmap -option caps:super &
 exec --no-startup-id xfsettingsd --sm-client-disable & 
+#exec --no-startup-id conky -c ~/.conky/Gotham/Gotham &
+exec --no-startup-id emacs --daemon &
+exec --no-startup-id nm-applet &
+exec --no-startup-id pasystray &
+exec --no-startup-id xfce4-volumed &
 
 #OtherOptions
 
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:Fira Code 11
+font pango:Ubuntu Mono 16
 font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
 font pango:Terminus 11px
 font FontAwesome
